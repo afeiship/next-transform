@@ -1,19 +1,33 @@
-var assert = require('assert');
 var nx = require('next-js-core2');
 require('../src/next-transform');
 
-describe('next/transform', function () {
+test('nx.transform for object', function() {
+  var obj1 = { name: 'fei', email: '1290657123@qq.com' };
 
-  it('nx.transform', function () {
-    var obj1 = {name: 'fei'};
-    var obj2 = {email: '1290657123@qq.com'};
+  var rs = nx.transform(
+    obj1,
+    (result, key, value) => {
+      result[`${key}__`] = '__' + value + '__';
+    },
+    {}
+  );
 
-    var result = {};
+  expect(rs).toEqual({ name__: '__fei__', email__: '__1290657123@qq.com__' });
+});
 
-    nx.transform(result, obj1, obj2);
+test('nx.transform for array', function() {
+  var obj1 = { name: 'fei', email: '1290657123@qq.com' };
 
-    assert.equal(result.name, obj1.name);
-    assert.equal(result.email, obj2.email);
-  });
+  var rs = nx.transform(
+    obj1,
+    (result, key, value) => {
+      result.push({ key: `${key}__`, value: `@@@${value}@@@` });
+    },
+    []
+  );
 
+  expect(rs).toEqual([
+    { key: 'name__', value: '@@@fei@@@' },
+    { key: 'email__', value: '@@@1290657123@qq.com@@@' }
+  ]);
 });

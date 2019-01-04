@@ -9,7 +9,7 @@
   },
   "scripts": {
     "build": "gulp",
-    "test": "mocha",
+    "test": "jest",
     "version": "gulp bump"
   },
   "main": "dist/next-transform.js",
