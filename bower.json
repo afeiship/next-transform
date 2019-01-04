@@ -1,0 +1,28 @@
+{
+  "name": "next-transform",
+  "version": "0.0.1",
+  "description": "An alternative to Reduce(lodash)",
+  "main": "dist/next-transform.js",
+  "authors": [
+    "afei"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "next"
+  ],
+  "homepage": "https://github.com/afeiship/next-transform",
+  "moduleType": [
+    "amd"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "build",
+    "src",
+    "gulp",
+    "gulpfile.js"
+  ]
+}
